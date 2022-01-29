@@ -97,11 +97,12 @@ function buildHTML(){
 	//get the table body
 	let tbody=document.getElementById("tbody_insert");
 	//build the html elements
+	let cur_pos=0;
 	for(let r=1;r<=4;r++){
 		let cur_row=document.createElement("tr");
 		cur_row.name="row"+r;
 		for(let c=1;c<=4;c++){
-			let cur_pos=r*c;
+			cur_pos+=1;
 			let cur_col=document.createElement("td");
 			cur_col.innerText="Card "+cur_pos;
 			let cur_img=document.createElement("img");
