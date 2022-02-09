@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="loteria">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jose'sLoteria Card</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      angular.module('loteria', []).controller('loteria_controller', function($scope) {
+        let beans=[
+          {src:"images/bean_1.png",width:70,height:39},
+          {src:"images/bean_2.png",width:68,height:56},
+          {src:"images/bean_3.png",width:51,height:72}
+        ];
+        $scope.deck=[];
+        $scope.cards=[
+          {value:0,title:   "1 - El Gallo",     src: "images/loteria 5x7 0.jpg"},
+          {value:1,title:   "2 - El Diablito",  src: "images/loteria 5x7 1.jpg"},
+          {value:2,title:   "3 - La Dama",      src: "images/loteria 5x7 2.jpg"},
+          {value:3,title:   "4 - El Catrin",    src: "images/loteria 5x7 3.jpg"},
+          {value:4,title:   "5 - El Paraguas",  src: "images/loteria 5x7 4.jpg"},
+          {value:5,title:   "6 - La Sirena",    src: "images/loteria 5x7 5.jpg"},
+          {value:6,title:   "7 - La Escalera",  src: "images/loteria 5x7 6.jpg"},
+          {value:7,title:   "8 - La Botella",   src: "images/loteria 5x7 7.jpg"},
+          {value:8,title:   "9 - El Barril",    src: "images/loteria 5x7 8.jpg"},
+          {value:9,title:   "10 - El Arbol",    src: "images/loteria 5x7 9.jpg"},
+          {value:10,title:  "11 - El Melon",    src: "images/loteria 5x7 10.jpg"},
+          {value:11,title:  "12 - El Valiente", src: "images/loteria 5x7 11.jpg"},
+          {value:12,title:  "13 - El Gorrito",  src: "images/loteria 5x7 12.jpg"},
+          {value:13,title:  "14 - La Muerte",   src: "images/loteria 5x7 13.jpg"},
+          {value:14,title:  "15 - La Pera",     src: "images/loteria 5x7 14.jpg"},
+          {value:15,title:  "16 - La Bandera",  src: "images/loteria 5x7 15.jpg"},
+          {value:16,title:  "17 - El Bandolon", src: "images/loteria 5x7 16.jpg"},
+          {value:17,title:  "18 - El Violoncello", src: "images/loteria 5x7 17.jpg"},
+          {value:18,title:  "19 - La Garza",    src: "images/loteria 5x7 18.jpg"},
+          {value:19,title:  "20 - El Pajaro",   src: "images/loteria 5x7 19.jpg"},
+          {value:20,title:  "21 - La Mano",     src: "images/loteria 5x7 20.jpg"},
+          {value:21,title:  "22 - La Bota",     src: "images/loteria 5x7 21.jpg"},
+          {value:22,title:  "23 - La Luna",     src: "images/loteria 5x7 22.jpg"},
+          {value:23,title:  "24 - El Cotorro",  src: "images/loteria 5x7 23.jpg"},
+          {value:24,title:  "25 - El Borracho", src: "images/loteria 5x7 24.jpg"},
+          {value:25,title:  "26 - El Negrito",  src: "images/loteria 5x7 25.jpg"},
+          {value:26,title:  "27 - El Corazon",  src: "images/loteria 5x7 26.jpg"},
+          {value:27,title:  "28 - La Sandia",   src: "images/loteria 5x7 27.jpg"},
+          {value:28,title:  "29 - El Tambor",   src: "images/loteria 5x7 28.jpg"},
+          {value:29,title:  "30 - El Camaron",  src: "images/loteria 5x7 29.jpg"},
+          {value:30,title:  "31 - Las Jaras",   src: "images/loteria 5x7 30.jpg"},
+          {value:31,title:  "32 - El Musico",   src: "images/loteria 5x7 31.jpg"},
+          {value:32,title:  "33 - La Arana",    src: "images/loteria 5x7 32.jpg"},
+          {value:33,title:  "34 - El Soldado",  src: "images/loteria 5x7 33.jpg"},
+          {value:34,title:  "35 - La Estrella", src: "images/loteria 5x7 34.jpg"},
+          {value:35,title:  "36 - El Cazo",     src: "images/loteria 5x7 35.jpg"},
+          {value:36,title:  "37 - El Mundo",    src: "images/loteria 5x7 36.jpg"},
+          {value:37,title:  "38 - El Apache",   src: "images/loteria 5x7 37.jpg"},
+          {value:38,title:  "39 - El Nopal",    src: "images/loteria 5x7 38.jpg"},
+          {value:39,title:  "40 - El Alacran",  src: "images/loteria 5x7 39.jpg"},
+          {value:40,title:  "41 - La Rosa",     src: "images/loteria 5x7 40.jpg"},
+          {value:41,title:  "42 - La Calavera", src: "images/loteria 5x7 41.jpg"},
+          {value:42,title:  "43 - La Campana",  src: "images/loteria 5x7 42.jpg"},
+          {value:43,title:  "44 - El Cantarito",  src: "images/loteria 5x7 43.jpg"},
+          {value:44,title:  "45 - El Venado",   src: "images/loteria 5x7 44.jpg"},
+          {value:45,title:  "46 - El Sol",      src: "images/loteria 5x7 45.jpg"},
+          {value:46,title:  "47 - La Corona",   src: "images/loteria 5x7 46.jpg"},
+          {value:47,title:  "48 - La Chalupa",  src: "images/loteria 5x7 47.jpg"},
+          {value:48,title:  "49 - El Pino",     src: "images/loteria 5x7 48.jpg"},
+          {value:49,title:  "50 - El Pescado",  src: "images/loteria 5x7 49.jpg"},
+          {value:50,title:  "51 - La Palma",    src: "images/loteria 5x7 50.jpg"},
+          {value:51,title:  "52 - La Maceta",   src: "images/loteria 5x7 51.jpg"},
+          {value:52,title:  "53 - El Arpa",     src: "images/loteria 5x7 52.jpg"},
+          {value:53,title:  "54 - La Rana",     src: "images/loteria 5x7 53.jpg"}
+        ];
+        function shuffle(){
+        	let tmp_deck=[];
+        	for(let i=0;i<54;i++){
+        		let tmp_obj={};
+        		tmp_obj.value=i;
+            tmp_obj.src=$scope.cards[i].src;
+            tmp_obj.title=$scope.cards[i].title;
+            tmp_obj.marked=false;
+        		tmp_obj.rnd=Math.random();
+        		tmp_deck.push(tmp_obj);
+        	}
+        	tmp_deck.sort((a,b)=>{
+        		return a.rnd-b.rnd;
+        	});
+        	for(let i=0;i<54;i++){
+            tmp_deck[i].pos=i;
+        		$scope.deck.push(tmp_deck[i]);
+        	}
+        }
+        shuffle();
+          $scope.new_card=[];
+          let card_cnt=0;
+          for (let r = 0; r < 4; r++) {
+            let row=[];
+            for(let c = 0; c < 4; c++){
+              let col=$scope.deck[card_cnt];
+              card_cnt++;
+              row.push(col);
+            }
+            $scope.new_card.push(row);
+          }
+          $scope.bean_click = function (e){
+            let card_pos=Number(this.id.toString().replace("bean_",""));
+            let row=Math.floor(card_pos/4);
+            let col=card_pos% 4;
+            $scope.new_card[row][col].marked=false;
+            document.getElementById(this.id).remove();
+          }
+          $scope.mark_it=function(event,card){
+            console.log(event.x,event.y);
+            if(card.marked==false){
+              card.marked=true;
+              let bean=document.createElement("img");
+              let b=2;
+               bean.id="bean_"+card.pos;
+               bean.src=beans[b].src;
+               bean.width=beans[b].width;
+               bean.height=beans[b].height;
+               let rnd_rot=Math.floor(Math.random()*360).toString();
+               let x_ofs=(event.pageX-bean.width/2).toString();
+               let y_ofs=(event.pageY-bean.height/2).toString();
+               let style_str="transform: rotate("+rnd_rot+"deg); position: absolute; top: "+y_ofs+"px; left: "+ x_ofs+"px; z-index=10;";
+               console.log(style_str);
+               bean.style=style_str;
+               bean.onclick=$scope.bean_click;
+               let anchor=document.getElementById("card_tag"+card.pos);
+               anchor.appendChild(bean);
+            }
+          }
+        });
+    </script>
+</head>
+<body ng-controller="loteria_controller">
+  <div class="container">
+    <div class="panel">
+      <div class="row" ng-repeat="row in new_card">
+        <div class="col" ng-repeat="card in row">
+          <img src="{{card.src}}" class="img-thumbnail" alt="..." ng-click="mark_it($event,card)">
+          <a id="card_tag{{card.pos}}"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<footer>
+  Jose V. (Inspired by David Mercado) 2022
+</footer>
+</html>
