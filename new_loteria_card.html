@@ -134,11 +134,11 @@
     </script>
 </head>
 <body ng-controller="loteria_controller">
-  <div class="container">
+  <div class="container pull-right" style="width:750px;">
     <div class="panel">
       <div class="row" ng-repeat="row in new_card">
-        <div class="col" ng-repeat="card in row">
-          <img src="{{card.src}}" class="img-thumbnail" alt="..." ng-click="mark_it($event,card)">
+        <div class="col gx-0" ng-repeat="card in row">
+          <img src="{{card.src}}" class="img-thumbnail" style="border-color:black;border-radius:unset;" alt="..." ng-click="mark_it($event,card)">
           <a id="card_tag{{card.pos}}"></a>
         </div>
       </div>
